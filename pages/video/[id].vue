@@ -1,7 +1,10 @@
 <script setup lang="ts">
-const route = useRoute()
+import apiService from '../../services/apiService.vue';
 
-console.log("ts video => ", route.params.id)
+const route = useRoute()
+const data = apiService.request("/video/" + route.params.id)
+console.log("ts video => ", data)
+
 </script>
 
 <template>
