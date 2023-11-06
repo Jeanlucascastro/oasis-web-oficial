@@ -1,11 +1,12 @@
 <template>
   <div>
-    <!-- <NuxtWelcome /> -->
     <NuxtPage />
   </div>
 </template>
 
+
 <script setup lang="ts">
+const counter = useState('counter', () => 'counrererererererererervcvcter')
 useHead({
   title: 'Oasis',
   meta: [

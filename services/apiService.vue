@@ -10,6 +10,7 @@ const apiService = {
       console.log('axios', url)
       console.log('axios', response)
       return response.data;
+
     } catch (error) {
       throw error;
     }
