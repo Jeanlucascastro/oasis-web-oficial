@@ -9,4 +9,11 @@ export default defineNuxtConfig({
       apiBase: 'http://localhost:8080'
     }
   },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  css: ['/main.css'],
 })
