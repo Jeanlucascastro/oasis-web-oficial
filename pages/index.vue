@@ -69,7 +69,6 @@ export default {
 
   methods: {
     loginNow() {
-      try {
         axios.post('http://192.168.0.104:8080/auth/login', {
           login: 'Castro',
           password: 123456789
@@ -78,13 +77,11 @@ export default {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-          }
+          },
+          method: 'POST' || 'OPTIONS'
         }).then((d) => {
           console.log('DDD', d)
         });
-      } catch (error) {
-        throw error;
-      }
     }
   }
 

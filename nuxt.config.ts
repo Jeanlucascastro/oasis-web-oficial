@@ -17,6 +17,6 @@ export default defineNuxtConfig({
   },
   css: ['/main.css'],
   routeRules: {
-    '/auth/**': { cors: true },
+    '/**': { cors: true },
   }
 })
