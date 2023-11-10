@@ -69,18 +69,17 @@ export default {
 
   methods: {
     loginNow() {
-        axios.post('http://192.168.0.104:8080/auth/login', {
-          login: 'Castro',
-          password: 123456789
+        axios.post('http://localhost:3001/api/auth/login', {
+          email: "jean@gmail.com",
+          password: "^X9$jP0#aBHxD5"
         }, {
           headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
           },
-          method: 'POST' || 'OPTIONS'
         }).then((d) => {
-          console.log('DDD', d)
+          console.log('DDD', d.data)
         });
     }
   }
