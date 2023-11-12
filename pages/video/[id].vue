@@ -9,7 +9,7 @@ const route = useRoute()
 </template>
 
 <script lang="ts">
-const counter = useState('counter')
+// const counter = useState('counter')
 
-console.log(counter.value)
+// console.log(counter.value)
 </script>

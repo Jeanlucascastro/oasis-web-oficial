@@ -1,6 +1,10 @@
 
 <script lang="ts">
 import axios from 'axios';
+import Cookies from 'js-cookie';
+
+
+
 
 export default {
 
@@ -47,8 +51,13 @@ export default {
           console.log('DD????D', usuario.data)
           this.token = usuario.data.token
           const counter = useState('token', () => this.token)
-          const auth = useState('auth', () => true)
-          console.log('counter', counter.value)          
+          this.changePage()
+          // sessionStorage.setItem('token', usuario.data.token);
+
+          // const store = useStore();
+          // Cookies.set('token', usuario.data.token, { expires: 7 }); // Cookie will expire in 7 days
+          // this.$store.dispatch('setToken', usuario.data.token);
+          // console.log('counter', counter.value)          
         });
     }
   }
