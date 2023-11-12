@@ -18,5 +18,6 @@ export default defineNuxtConfig({
   css: ['/main.css'],
   routeRules: {
     '/**': { cors: true },
-  }  
+  },
+  ssr: false  
 })

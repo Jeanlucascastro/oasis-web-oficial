@@ -52,7 +52,7 @@ export default {
           this.token = usuario.data.token
           const counter = useState('token', () => this.token)
           this.changePage()
-          // sessionStorage.setItem('token', usuario.data.token);
+          sessionStorage.setItem('token', usuario.data.token);
 
           // const store = useStore();
           // Cookies.set('token', usuario.data.token, { expires: 7 }); // Cookie will expire in 7 days
