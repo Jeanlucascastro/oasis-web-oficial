@@ -1,4 +1,63 @@
-<template>
+
+<script lang="ts">
+import axios from 'axios';
+
+export default {
+
+  data() {
+    return {
+      usuario: "",
+      token: ''
+    };
+  },
+
+
+
+  created() {
+    // apiService.login('/auth/login', 'Castro', '123456789')
+
+    // Esta função será chamada quando o componente for criado
+    // this.loginNow('/auth/login', 'Castro', '123456789')
+  },
+
+  methods: {
+
+    async changePage() {
+      console.log('wdkpoakdwpokdpoakdpoWK')
+      await navigateTo('/initial')
+    },
+
+    login() {
+      this.loginNow('/auth/login', 'jean@gmail.com', '^X9$jP0#aBHxD5')
+      // apiService.login('/auth/login', 'Castro', '123456789')
+    },
+    
+    loginNow(url: string, login: string, password: string) {
+        axios.post('http://192.168.0.104:3001/api/auth/login', {
+          email: login,
+          password: password
+        }, {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+          },
+        }).then((usuario) => {
+          this.changePage()
+          console.log('DD????D', usuario.data)
+          this.token = usuario.data.token
+          const counter = useState('token', () => this.token)
+          const auth = useState('auth', () => true)
+          console.log('counter', counter.value)          
+        });
+    }
+  }
+
+}
+</script>
+
+
+<template> 
   <header>
     <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -35,6 +94,7 @@
             <button type="submit"
               class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
               in</button>
+
           </div>
         </form>
 
@@ -49,6 +109,7 @@
       <ul>
         <li>
           <NuxtLink to="/video/1">Post 1</NuxtLink>
+          <button  @click="login"> Logar</button>
         </li>
         <li>
           <NuxtLink to="/video/2">Post 2</NuxtLink>
@@ -57,40 +118,3 @@
     </nav>
   </header>
 </template>
-
-<script lang="ts">
-import axios from 'axios';
-
-export default {
-  created() {
-    // Esta função será chamada quando o componente for criado
-    this.loginNow();
-  },
-
-  methods: {
-    loginNow() {
-        axios.post('http://localhost:3001/api/auth/login', {
-          email: "jean@gmail.com",
-          password: "^X9$jP0#aBHxD5"
-        }, {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-          },
-        }).then((d) => {
-          console.log('DDD', d.data)
-        });
-    }
-  }
-
-}
-
-
-
-
-
-
-
-
-</script>
